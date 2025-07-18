@@ -25,6 +25,10 @@
       margin-bottom: 30px;
     }
 
+    .input-section {
+      margin-bottom: 30px;
+    }
+
     input[type="text"] {
       width: 90%;
       max-width: 500px;
@@ -39,7 +43,7 @@
     }
 
     .btn {
-      margin: 15px 10px;
+      margin: 10px 5px;
       padding: 12px 22px;
       font-size: 16px;
       background-color: #ff1a1a;
@@ -100,12 +104,13 @@
   <h1>🍪 Cookie Account Checker</h1>
   <h3>Made with 🔥 by <strong>Hiroshi</strong></h3>
 
-  <input type="text" id="cookieInput" placeholder="Paste your .ROBLOSECURITY cookie here">
-  <br>
-
-  <button class="btn" onclick="checkOnly()">Cookie Checker</button>
-  <button class="btn" onclick="checkCookie()">Submit (Full Info)</button>
-  <button class="btn" onclick="refreshCookie()">Cookie Refresher</button>
+  <div class="input-section">
+    <input type="text" id="cookieInput" placeholder="Paste your .ROBLOSECURITY cookie here">
+    <br>
+    <button class="btn" onclick="checkOnly()">Cookie Checker</button>
+    <button class="btn" onclick="checkCookie()">Submit (Full Info)</button>
+    <button class="btn" onclick="refreshCookie()">Cookie Refresher</button>
+  </div>
 
   <div id="result" class="result fade-in"></div>
 
@@ -114,7 +119,6 @@
       const cookie = document.getElementById("cookieInput").value.trim();
       const resultDiv = document.getElementById("result");
       resultDiv.innerHTML = "🔍 Checking cookie validity...";
-
       try {
         const res = await fetch("https://users.roblox.com/v1/users/authenticated", {
           headers: { "Cookie": ".ROBLOSECURITY=" + cookie }
